@@ -22,11 +22,4 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Model\" />
-    <Folder Include="Data\" />
-    <Folder Include="DataAccessUI\" />
-  </ItemGroup>
-
 </Project>
