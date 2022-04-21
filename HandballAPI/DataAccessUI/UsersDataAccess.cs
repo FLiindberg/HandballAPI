@@ -15,19 +15,19 @@ namespace HandballAPI.DataAccessUI
             _hDbContext = hDbContext;
         }
 
-        //Get Method
+        //Get All Users
         public IEnumerable<User> GetUsers()
         {
             return _hDbContext.Users.ToList();
         }
 
-        //Get By Id
+        //Get User By Id
         public User GetUserById(int userid)
         {
             return _hDbContext.Users.AsNoTracking().Single(p => p.UserId == userid);
         }
 
-        //Add Method
+        //Add A User
         public void AddUser(User user)
         {
             _hDbContext.Users.Add(user);
@@ -37,7 +37,7 @@ namespace HandballAPI.DataAccessUI
             _hDbContext.SaveChanges();
         }
 
-        //Update Method
+        //Update A User
         public void UpdateUser(User user)
         {
             var b = _hDbContext.Users.SingleOrDefault(p => p.UserId == user.UserId);
@@ -47,7 +47,7 @@ namespace HandballAPI.DataAccessUI
             _hDbContext.SaveChanges();
         }
 
-        //Delete Method
+        //Delete A User
         public void DeleteUser(int userid)
         {
             var b = _hDbContext.Users.SingleOrDefault(p => p.UserId == userid);
