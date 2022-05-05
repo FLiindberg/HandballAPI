@@ -14,7 +14,6 @@ builder.Services.AddDbContext<HDbContext>(options => {
 
 builder.Services.AddScoped<HDbContext>();
 builder.Services.AddScoped<IPostsDataAccess, PostsDataAccess>();
-builder.Services.AddScoped<IUsersDataAccess, UsersDataAccess>();
 builder.Services.AddControllers();
 builder.Services.AddCors();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

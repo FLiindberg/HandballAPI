@@ -3,6 +3,7 @@ using HandballAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HandballAPI.Migrations
 {
     [DbContext(typeof(HDbContext))]
-    partial class HDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220505111505_post")]
+    partial class post
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,19 +31,11 @@ namespace HandballAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PostId"), 1L, 1);
 
-                    b.Property<string>("Author")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Link")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Team")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -57,20 +51,68 @@ namespace HandballAPI.Migrations
                         new
                         {
                             PostId = 1,
-                            Author = "Filip Lindberg",
                             Description = "Test 11",
                             Link = "Test",
-                            Team = "P08",
                             Title = "Test 1"
                         },
                         new
                         {
                             PostId = 2,
-                            Author = "Filip Lindberg",
                             Description = "Test 22",
                             Link = "Test 2",
-                            Team = "P08",
                             Title = "Test 2"
+                        });
+                });
+
+            modelBuilder.Entity("HandballAPI.Model.User", b =>
+                {
+                    b.Property<int>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"), 1L, 1);
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Fname")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Lname")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PasswordHash")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PhoneNumber")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserId");
+
+                    b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = 1,
+                            Email = "filip.lindberg97@gmail.com",
+                            Fname = "Filip",
+                            Lname = "Lindberg",
+                            PasswordHash = "112233",
+                            PhoneNumber = 112
+                        },
+                        new
+                        {
+                            UserId = 2,
+                            Email = "filip.lindberg97@test.com",
+                            Fname = "Test",
+                            Lname = "Lindberg",
+                            PasswordHash = "11223344",
+                            PhoneNumber = 112233
                         });
                 });
 #pragma warning restore 612, 618
