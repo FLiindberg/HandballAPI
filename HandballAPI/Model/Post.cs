@@ -20,8 +20,5 @@ namespace HandballAPI.Model
             Author = post.Author;
             Team = post.Team;
         }
-
-        //public int UserId { get; set; }
-        //public User User { get; set; }
     }
 }
