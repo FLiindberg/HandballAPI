@@ -3,6 +3,7 @@ using HandballAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HandballAPI.Migrations
 {
     [DbContext(typeof(HDbContext))]
-    partial class HDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220608063603_dataseed")]
+    partial class dataseed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -67,7 +69,7 @@ namespace HandballAPI.Migrations
                         {
                             PostId = 2,
                             Author = "Filip Lindberg",
-                            Description = "Utvisningsepelets tanke ör att isolera en 2:a för att får ett man man läge mellan 3 och 2 på sin starkaste sida.",
+                            Description = "Utvisningsepelets tanke är att...",
                             Link = "Test 2",
                             Team = "P08",
                             Title = "Utvisningspel"
